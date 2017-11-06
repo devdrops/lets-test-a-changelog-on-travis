@@ -1,4 +1,5 @@
 language: php
 
 script:
-  - CHANGED_FILES=($(git diff --name-only --diff-filter=AM HEAD...$TRAVIS_BRANCH)) && echo $CHANGED_FILES && ./check-changelog.sh $CHANGED_FILES
+  - CHANGED_FILES=($(git diff --name-only --diff-filter=AM HEAD...$TRAVIS_BRANCH)) && ./check-changelog.sh $CHANGED_FILES
+  - echo $CHANGED_FILES
