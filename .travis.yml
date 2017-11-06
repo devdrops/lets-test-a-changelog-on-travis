@@ -1,0 +1,5 @@
+language: php
+
+script:
+  - CHANGED_FILES=($(git diff --name-only $TRAVIS_COMMIT_RANGE)) && echo $CHANGED_FILES
+
