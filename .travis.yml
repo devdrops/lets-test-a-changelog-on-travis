@@ -1,5 +1,7 @@
 language: php
 
 script:
-  - CHANGED_FILES=($(git diff --name-only $TRAVIS_COMMIT_RANGE)) && echo $CHANGED_FILES
-
+  - echo $(git diff --name-only --diff-filter=AM HEAD...$TRAVIS_BRANCH)
+  - CHANGED_FILES=($(git diff --name-only --diff-filter=M $(echo $TRAVIS_COMMIT_RANGE | sed 's/\.\.\./\ /')))
+  - echo $CHANGED_FILES
+  - ./check-changelog.sh $CHANGED_FILES
