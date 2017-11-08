@@ -4,4 +4,4 @@ script:
   - echo $TRAVIS_COMMIT_RANGE
   - CHANGED_FILES=$(git diff --name-only --diff-filter=AM $TRAVIS_COMMIT_RANGE)
   - echo $CHANGED_FILES
-  - ./check-changelog.sh $CHANGED_FILES
+  - source ./check-changelog.sh $CHANGED_FILES
