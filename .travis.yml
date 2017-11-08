@@ -2,6 +2,6 @@ language: php
 
 script:
   - echo $TRAVIS_COMMIT_RANGE
-  - CHANGED_FILES=$(git diff --name-only --diff-filter=AM $TRAVIS_COMMIT_RANGE)
+  - CHANGED_FILES=$(git diff --name-only --diff-filter=AM $TRAVIS_COMMIT_RANGE | tr -d '\n')
   - echo $CHANGED_FILES
   - source ./check-changelog.sh $CHANGED_FILES
