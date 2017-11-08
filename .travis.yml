@@ -1,9 +1,10 @@
 language: php
 
 script:
-  - echo $TRAVIS_BRANCH
   - echo $TRAVIS_COMMIT_RANGE
   - echo $(git diff --name-only --diff-filter=AM $TRAVIS_COMMIT_RANGE)
+  - FOO=$(git diff --name-only --diff-filter=AM $TRAVIS_COMMIT_RANGE)
   - CHANGED_FILES=($(git diff --name-only --diff-filter=AM $TRAVIS_COMMIT_RANGE))
   - echo $CHANGED_FILES
+  - echo $FOO
   - ./check-changelog.sh $CHANGED_FILES
