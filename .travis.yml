@@ -1,7 +1,6 @@
 language: php
 
 script:
-  - git branch
   - echo $TRAVIS_BRANCH
   - echo $TRAVIS_COMMIT_RANGE
   - CHANGED_FILES=($(git diff --name-only --diff-filter=AM $TRAVIS_COMMIT_RANGE))
